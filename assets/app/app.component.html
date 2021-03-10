@@ -1,0 +1,232 @@
+<div class="section-top-border" *ngIf="!showThankYouScreen">
+    <h3 class="mb-30" style="text-transform: uppercase;">{{AppLabels["Title"]}}</h3>
+    <form [formGroup]="QuoteForm" (ngSubmit)="onSubmit()">
+        <div class="row">
+            <div id="QuotationSlider" class="carousel slide" data-ride="false" data-wrap="false" data-interval="99999">
+                <div class="carousel-inner" style="min-height: 25rem!important;">
+                    <div class="carousel-item active">
+                        <div class="mt-3">
+                            <label class="section_title">{{AppLabels["Page_1_Title"]}}</label>
+                        </div>
+                        <div class="row">
+                            <div class="col-lg-6 col-md-6 col-sm-12">
+                                <div class="mt-3 form-group">
+                                    <label>{{AppLabels["LicenceHeldFor"]}}</label>
+                                    <input type="text" formControlName="LicenceHeldFor" name="LicenceHeldFor" placeholder="Licence Held For" class="single-input" />
+                                </div>
+                            </div>
+                            <div class="col-lg-6 col-md-6 col-sm-12">
+                                <div class="mt-3 form-group">
+                                    <label>{{AppLabels["YearManufactured"]}}</label>
+                                    <input type="number" formControlName="YearManufactured" name="YearManufactured" placeholder="Year Manufactured" class="single-input" />
+                                </div>
+                            </div>
+                            <div class="col-lg-6 col-md-6 col-sm-12">
+                                <div class="mt-3 form-group">
+                                    <label>{{AppLabels["CarMake"]}}</label>
+                                    <select formControlName="CarMake" (change)="OnMakeSelected($event.target.value)" name="CarMake" placeholder="Car Make" class="form-control">
+                                        <option value="" selected="selected">{{AppLabels["Selected"]}}</option>
+                                        <option value="{{vehicle.make}}" *ngFor="let vehicle of VehiclesMakes">{{vehicle.make}}
+                                        </option>
+                                    </select>
+                                </div>
+                            </div>
+                            <div class="col-lg-6 col-md-6 col-sm-12">
+                                <div class="mt-3 form-group">
+                                    <label>{{AppLabels["CarModel"]}}</label>
+                                    <select formControlName="CarModel" name="CarModel" placeholder="Car Model" class="form-control">
+                                        <option value="" selected="selected">{{AppLabels["Selected"]}}</option>
+                                        <option value="{{vehicle.model}}" *ngFor="let vehicle of VehicleModels">{{vehicle.model}}
+                                        </option>
+                                    </select>
+                                </div>
+                            </div>
+                            <div class="col-lg-6 col-md-6 col-sm-12">
+                                <div class="mt-3 form-group">
+                                    <label>{{AppLabels["CityOfRegistration"]}}</label>
+                                    <input type="text" formControlName="CityOfRegistration" name="CityOfRegistration" placeholder="City Of Registration" class="single-input" />
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                    <div class="carousel-item">
+                        <div class="mt-3">
+                            <label class="section_title">{{AppLabels["Page_2_Title"]}}</label>
+                        </div>
+                        <div class="row">
+                            <div class="col-lg-6 col-md-6 col-sm-12">
+                                <div class="mt-3 form-group">
+                                    <label>{{AppLabels["CurrentlyWith"]}}</label>
+                                    <input type="text" formControlName="CurrentlyWith" name="CurrentlyWith" placeholder="Currently With" class="single-input" />
+                                </div>
+                            </div>
+                            <div class="col-lg-6 col-md-6 col-sm-12">
+                                <div class="mt-3 form-group">
+                                    <label>{{AppLabels["CarValue"]}}</label>
+                                    <input type="number" formControlName="CarValue" name="CarValue" placeholder="Car Value" class="single-input" />
+                                </div>
+                            </div>
+                            <div class="col-lg-6 col-md-6 col-sm-12">
+                                <div class="mt-3 form-group">
+                                    <label>{{AppLabels["TypeOfInsurance"]}}</label>
+                                    <select formControlName="TypeOfInsurance" name="TypeOfInsurance" placeholder="Nationality" class="form-control">
+                                        <option value="" selected="selected">{{AppLabels["Selected"]}}</option>
+                                        <option value="Comprehensive" >
+                                            {{AppLabels["Comprehensive"]}}
+                                        </option>
+                                        <option value="ThirdPartyOnly" >
+                                            {{AppLabels["ThirdPartyOnly"]}}
+                                        </option>
+                                    </select>
+                                </div>
+                            </div>
+                            <div class="col-lg-6 col-md-6 col-sm-12">
+                                <div class="mt-3 form-group">
+                                    <label>{{AppLabels["ClaimHistory"]}}</label>
+                                    <select formControlName="ClaimHistory" name="ClaimHistory" class="form-control">
+                                        <option value="" selected="selected">{{AppLabels["Selected"]}}</option>
+                                        <option value="NoClaimsInThePastYear">{{AppLabels["NoClaimsInThePastYear"]}}</option>
+                                        <option value="NoClaimsFor2Years">{{AppLabels["NoClaimsFor2Years"]}}</option>
+                                        <option value="NoClaimsFor3Years">{{AppLabels["NoClaimsFor3Years"]}}</option>
+                                        <option value="NoClaimsFor4Years">{{AppLabels["NoClaimsFor4Years"]}}</option>
+                                        <option value="NoClaimsFor5Years">{{AppLabels["NoClaimsFor5Years"]}}</option>
+                                        <option value="ClaimedLastYear">{{AppLabels["ClaimedLastYear"]}}</option>
+                                        </select>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                    <div class="carousel-item">
+                        <div class="mt-3">
+                            <label class="section_title">{{AppLabels["Page_3_Title"]}}</label>
+                        </div>
+                        <div class="row">
+
+                            <div class="col-lg-6 col-md-6 col-sm-12">
+                                <div class="mt-3 form-group">
+                                    <label>{{AppLabels["FirstName"]}}</label>
+                                    <input type="text" formControlName="FirstName" name="FirstName" placeholder="First Name" class="single-input" />
+                                </div>
+                            </div>
+                            <div class="col-lg-6 col-md-6 col-sm-12">
+                                <div class="mt-3 form-group">
+                                    <label>{{AppLabels["LastName"]}}</label>
+                                    <input type="text" formControlName="LastName" name="LastName" placeholder="Last Name" class="single-input" />
+                                </div>
+                            </div>
+                            <div class="col-lg-6 col-md-6 col-sm-12">
+                                <div class="mt-3 form-group">
+                                    <label>{{AppLabels["Email"]}}</label>
+                                    <input type="email" formControlName="Email" name="Email" placeholder="Email" class="single-input" />
+                                </div>
+                            </div>
+                            <div class="col-lg-6 col-md-6 col-sm-12">
+                                <div class="mt-3 form-group">
+                                    <label>{{AppLabels["Mobile"]}}</label>
+                                    <input type="phone" formControlName="Mobile" name="Mobile" placeholder="Mobile" class="single-input" />
+                                </div>
+                            </div>
+                            <div class="col-lg-6 col-md-6 col-sm-12">
+                                <div class="mt-3 form-group">
+                                    <label>{{AppLabels["DateOfBirth"]}}</label>
+                                    <input type="date" formControlName="DateOfBirth" name="DateOfBirth" placeholder="Date Of Birth" class="single-input" />
+                                </div>
+                            </div>
+                            <div class="col-lg-6 col-md-6 col-sm-12">
+                                <div class="mt-3 form-group">
+                                    <label>{{AppLabels["Nationality"]}}</label>
+                                    <select formControlName="Nationality" name="Nationality" placeholder="Nationality" class="form-control">
+                                        <option value="" selected="selected">{{AppLabels["Selected"]}}</option>
+                                        <option value="{{country.alpha3Code}}" *ngFor="let country of Countries">{{country.name}}
+                                        </option>
+                                    </select>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+        <div class="row">
+            <div class="col-lg-12 col-md-12 col-sm-12 d-flex justify-content-center">
+                <div class="btn-group" role="group">
+                    <button type="button" (click)="back()" class="btn btn-dark text-white ">{{AppLabels["Back"]}}</button>
+                    <!--[disabled]="!this.QuoteForm.valid" -->
+                    <button [disabled]="!QuoteForm.valid" type="submit" class="btn btn-info text-white mx-1">{{AppLabels["Submit"]}}
+                    </button>
+                    <button type="button" (click)="next()" class="btn btn-dark text-white ">{{AppLabels["Next"]}}</button>
+                </div>
+            </div>
+        </div>
+        <div *ngIf="(QuoteForm.controls.LicenceHeldFor.dirty || QuoteForm.controls.LicenceHeldFor.touched) && !QuoteForm.valid">
+            <label class="section_title py-4">The following fields are required</label>
+            <ul class="row errors">
+                <!-- Step 1 -->
+                <li class="col-lg-6 col-md-6 col-sm-6  text-danger" *ngIf="(QuoteForm.controls.LicenceHeldFor.dirty || QuoteForm.controls.LicenceHeldFor.touched) && QuoteForm.controls.LicenceHeldFor.errors?.required">
+                    {{AppLabels["LicenceHeldFor"]}}
+                </li>
+                <li class="col-lg-6 col-md-6 col-sm-6 text-danger" *ngIf="(QuoteForm.controls.YearManufactured.dirty || QuoteForm.controls.YearManufactured.touched) && QuoteForm.controls.YearManufactured.errors?.required">
+                    {{AppLabels["YearManufactured"]}}
+                </li>
+                <li class="col-lg-6 col-md-6 col-sm-6 text-danger" *ngIf="(QuoteForm.controls.CarMake.dirty || QuoteForm.controls.CarMake.touched) && QuoteForm.controls.CarMake.errors?.required">
+                    {{AppLabels["CarMake"]}}
+                </li>
+                <li class="col-lg-6 col-md-6 col-sm-6 text-danger" *ngIf="(QuoteForm.controls.CarModel.dirty || QuoteForm.controls.CarModel.touched) && QuoteForm.controls.CarModel.errors?.required">
+                    {{AppLabels["CarModel"]}}
+                </li>
+                <li class="col-lg-6 col-md-6 col-sm-6 text-danger" *ngIf="QuoteForm.controls.CityOfRegistration.errors?.required && (QuoteForm.controls.CityOfRegistration.dirty || QuoteForm.controls.CityOfRegistration.touched)">
+                    {{AppLabels["CityOfRegistration"]}}
+                </li>
+                <!-- End Step 1 Validation-->
+
+                <!-- Step 2 -->
+                <li class="col-lg-6 col-md-6 col-sm-6 text-danger" *ngIf="QuoteForm.controls.CurrentlyWith.errors?.required && (QuoteForm.controls.CurrentlyWith.dirty || QuoteForm.controls.CurrentlyWith.touched)">
+                    {{AppLabels["CurrentlyWith"]}}
+                </li>
+                <li class="col-lg-6 col-md-6 col-sm-6 text-danger" *ngIf="QuoteForm.controls.CarValue.errors?.required && (QuoteForm.controls.CarValue.dirty || QuoteForm.controls.CarValue.touched)">
+                    {{AppLabels["CarValue"]}}
+                </li>
+                <li class="col-lg-6 col-md-6 col-sm-6 text-danger" *ngIf="QuoteForm.controls.TypeOfInsurance.errors?.required && (QuoteForm.controls.TypeOfInsurance.dirty || QuoteForm.controls.TypeOfInsurance.touched)">
+                    {{AppLabels["TypeOfInsurance"]}}
+                </li>
+                <li class="col-lg-6 col-md-6 col-sm-6 text-danger" *ngIf="QuoteForm.controls.ClaimHistory.errors?.required && (QuoteForm.controls.ClaimHistory.dirty || QuoteForm.controls.ClaimHistory.touched)">
+                    {{AppLabels["ClaimHistory"]}}
+                </li>
+                <!-- End Step 2 Validation-->
+
+                <!-- Step 3 -->
+                <li class="col-lg-6 col-md-6 col-sm-6 text-danger" *ngIf="QuoteForm.controls.FirstName.errors?.required && (QuoteForm.controls.FirstName.dirty || QuoteForm.controls.FirstName.touched)">
+                    {{AppLabels["FirstName"]}}
+                </li>
+                <li class="col-lg-6 col-md-6 col-sm-6 text-danger" *ngIf="QuoteForm.controls.LastName.errors?.required && (QuoteForm.controls.LastName.dirty || QuoteForm.controls.LastName.touched)">
+                    {{AppLabels["LastName"]}}
+                </li>
+                <li class="col-lg-6 col-md-6 col-sm-6 text-danger" *ngIf="QuoteForm.controls.Email.errors?.required && (QuoteForm.controls.Email.dirty || QuoteForm.controls.Email.touched)">
+                    {{AppLabels["Email"]}}
+                </li>
+                <li class="col-lg-6 col-md-6 col-sm-6 text-danger" *ngIf="QuoteForm.controls.Mobile.errors?.required && (QuoteForm.controls.Mobile.dirty || QuoteForm.controls.Mobile.touched)">
+                    {{AppLabels["Mobile"]}}
+                </li>
+                <li class="col-lg-6 col-md-6 col-sm-6 text-danger" *ngIf="QuoteForm.controls.DateOfBirth.errors?.required && (QuoteForm.controls.DateOfBirth.dirty || QuoteForm.controls.DateOfBirth.touched)">
+                    {{AppLabels["DateOfBirth"]}}
+                </li>
+                <li class="col-lg-6 col-md-6 col-sm-6 text-danger" *ngIf="QuoteForm.controls.Nationality.errors?.required && (QuoteForm.controls.Nationality.dirty || QuoteForm.controls.Nationality.touched)">
+                    {{AppLabels["Nationality"]}}
+                </li>
+                <!-- End Step 3 Validation-->
+
+
+            </ul>
+        </div>
+
+    </form>
+</div>
+<div class="section-top-border" *ngIf="showThankYouScreen">
+    <label class="mb-30 section_title" style="text-transform: uppercase;">
+        {{AppLabels["Page_ThankYou_Title"]}}
+    </label>
+    <h3>{{AppLabels["Quotation"]}} {{Quotation}} {{AppLabels["Currency"]}}</h3>
+    <p>
+        {{AppLabels["Page_ThankYou_Body"]}}
+    </p>
+</div>
